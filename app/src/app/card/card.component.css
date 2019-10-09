@@ -1,0 +1,22 @@
+.card {
+  margin-top: 50px;
+}
+form {
+  padding: 5px 5px 5px 5px;
+}
+.row {
+  margin-top: 2px;
+}
+.card-body {
+  height: 200px;
+  overflow: auto;
+}
+.bold {
+  font-weight: 700;
+}
+.btn-success {
+  background-color: #70e17b;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+}

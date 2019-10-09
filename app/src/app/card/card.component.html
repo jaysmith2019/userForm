@@ -1,0 +1,42 @@
+<div class="card">
+<div class="card-header"><i class="fa fa-user"></i>&nbsp;<span class="bold">{{title}}</span></div>
+<div class="card-body">
+  <form [formGroup]="userForm" (ngSubmit)="save()">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8"><input class="form-control" type="text" formControlName="Name"/>
+        </div>
+        <div class="col-2"></div>
+      </div>
+      <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8"><input class="form-control" type="text" formControlName="Address"/>
+            </div>
+            <div class="col-2"></div>
+          </div>
+      <div class="row">
+        <div class="col-9"></div>
+        <div class="col-3"><button class="btn btn-success" type="submit">Save</button></div>
+      </div>
+  </form>
+  <div class="row">
+    <div class="col-2"></div>
+      <div class="col-8" >
+          <div class="alert alert-danger text-center" [hidden]="isValid" >{{errorMessage}}</div>
+          <div class="alert alert-success text-center" [hidden]="!isValid" >{{successMessage}}</div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="row">
+      <div class="col-12">
+          Form Data: {{userForm.value | json}}
+      </div>
+      <div class="col-12">
+          Form Valid: {{isValid}}
+      </div>
+    </div>
+  </div>
+</div>
+
