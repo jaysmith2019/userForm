@@ -16,13 +16,16 @@
           </div>
       <div class="row">
         <div class="col-9"></div>
-        <div class="col-3"><button class="btn btn-success" type="submit">Save</button></div>
+        <div class="col-3"><button class="btn btn-success" type="submit" [hidden]="isValid">Save</button>
+          <button class="btn btn-primary" (click)="reset()" [hidden]="!isValid">Reset</button>
+        </div>
       </div>
   </form>
   <div class="row">
     <div class="col-2"></div>
       <div class="col-8" >
-          <div class="alert alert-danger text-center" [hidden]="isValid" >{{errorMessage}}</div>
+          <div *ngIf="userForm.value.Name === '' || userForm.value.Name === null" class="alert alert-danger text-center" >Name is a required field.</div>
+          <div *ngIf="userForm.value.Address === ''|| userForm.value.Address === null" class="alert alert-danger text-center" >Address is a required field.</div>
           <div class="alert alert-success text-center" [hidden]="!isValid" >{{successMessage}}</div>
       </div>
       <div class="col-2"></div>

@@ -23,13 +23,13 @@ constructor(private fb: FormBuilder) { }
 ngOnInit() {
   }
   save() {
-    if(this.userForm.value.Name === "" && this.userForm.value.Address !== "") {
+    if(this.userForm.value.Name === ("" || null) && this.userForm.value.Address !== ("" ||null)) {
       this.errorMessage = "Name is a required field.";
       this.isValid = false;
-    } else if(this.userForm.value.Address === "" && this.userForm.value.Name !== "") {
+    } else if(this.userForm.value.Address === ("" || null) && this.userForm.value.Name !== ("" || null)) {
       this.errorMessage = "Address is a required field."
       this.isValid = false;
-    } else if(this.userForm.value.Name === "" && this.userForm.value.Address === "") {
+    } else if(this.userForm.value.Name === ("" || null) && this.userForm.value.Address === ("" || null)) {
       this.errorMessage = "Address and name are required values.";
       this.isValid = false;
     }
@@ -38,5 +38,9 @@ ngOnInit() {
 
     }
     console.log(this.userForm.value.Name);
+   }
+   reset () {
+    this.isValid = true;
+     this.userForm.reset();
    }
 }
